@@ -101,7 +101,6 @@ class DatasetFFDNet(data.Dataset):
 
             # If not log
             img_L.mul_(s_amplitude)
-            print("coucou")
 
         else:
             """
