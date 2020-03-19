@@ -82,9 +82,9 @@ class DatasetFFDNet(data.Dataset):
             # --------------------------------
             L=1
             print(img_L.size())
-            img_size_numpy=img_L.size().numpy()
-            rows=img_size_numpy[0]
-            columns=img_size_numpy[1]
+            img_size_numpy=img_L.cpu().numpy().shape()
+            rows=img_size_numpy[1]
+            columns=img_size_numpy[2]
             s = np.zeros((rows, columns))
             for k in range(0,L):
                 gamma = np.abs( np.random.randn(n_imgs,rows,columns) + np.random.randn(n_imgs,rows,columns)*1j )**2/2
