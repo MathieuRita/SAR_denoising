@@ -116,6 +116,12 @@ class ModelPlain2(ModelBase):
     def optimize_parameters(self, current_step):
         self.G_optimizer.zero_grad()
         self.E = self.netG(self.L, self.C)
+
+        # L1
+        #self.G_lossfn = nn.L1Loss().to(self.device)
+        # L2
+        #self.G_lossfn = nn.MSELoss().to(self.device)
+
         G_loss = self.G_lossfn_weight * self.G_lossfn(self.E, self.H)
         G_loss.backward()
 

@@ -61,11 +61,13 @@ def main():
     # Preparation
     # ----------------------------------------
 
+
+    ###### /!/ ICI ON GERE LE NOISE LEVEL
     noise_level_img = 15                 # noise level for noisy image
     noise_level_model = noise_level_img  # noise level for model
     model_name = 'ffdnet_gray'           # 'ffdnet_gray' | 'ffdnet_color' | 'ffdnet_color_clip' | 'ffdnet_gray_clip'
     testset_name = 'bsd68'               # test set,  'bsd68' | 'cbsd68' | 'set12'
-    need_degradation = True              # default: True
+    need_degradation = False              # default: True
     show_img = False                     # default: False
 
 
@@ -143,11 +145,12 @@ def main():
         img_L = util.imread_uint(img, n_channels=n_channels)
         img_L = util.uint2single(img_L)
 
-        if need_degradation:  # degradation process
-            np.random.seed(seed=0)  # for reproducibility
-            img_L += np.random.normal(0, noise_level_img/255., img_L.shape)
-            if use_clip:
-                img_L = util.uint2single(util.single2uint(img_L))
+
+        #if need_degradation:  # degradation process
+        #    np.random.seed(seed=0)  # for reproducibility
+        #    img_L += np.random.normal(0, noise_level_img/255., img_L.shape)
+        #    if use_clip:
+        #        img_L = util.uint2single(util.single2uint(img_L))
 
         util.imshow(util.single2uint(img_L), title='Noisy image with noise level {}'.format(noise_level_img)) if show_img else None
 

@@ -77,6 +77,31 @@ class DatasetFFDNet(data.Dataset):
             noise = torch.randn(img_L.size()).mul_(noise_level).float()
             img_L.add_(noise)
 
+            # --------------------------------
+            # Add speckle
+            # --------------------------------
+            L=1
+            img_size_numpy=img_L.size().cpu().numpy()
+            rows=img_size_numpy[0]
+            columns=img_size_numpy[1]
+            s = np.zeros((rows, columns))
+            for k in range(0,L):
+                gamma = np.abs( np.random.randn(n_imgs,rows,columns) + np.random.randn(n_imgs,rows,columns)*1j )**2/2
+                s = s + gamma
+            s_amplitude = np.sqrt(s/L)
+            # if log
+            #s_amplitude = np.log(s_amplitude)
+
+            # If not log
+            s_amplitude=torch.tensor(s_amplitude)
+
+            # if log
+            #img_L.add_(s_amplitude)
+
+            # If not log
+            img_L.mul_(s_amplitude)
+            print("coucou")
+
         else:
             """
             # --------------------------------
