@@ -81,7 +81,7 @@ class DatasetFFDNet(data.Dataset):
             # Add speckle
             # --------------------------------
             L=1
-            img_size_numpy=img_L.size().data.numpy()
+            img_size_numpy=img_L.size().data.cpu().numpy()
             rows=img_size_numpy[0]
             columns=img_size_numpy[1]
             s = np.zeros((rows, columns))
