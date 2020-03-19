@@ -82,7 +82,7 @@ class DatasetFFDNet(data.Dataset):
             # --------------------------------
             L=1
             print(img_L.size())
-            img_size_numpy=img_L.cpu().numpy().shape()
+            img_size_numpy=img_L.cpu().numpy().shape
             rows=img_size_numpy[1]
             columns=img_size_numpy[2]
             s = np.zeros((rows, columns))
