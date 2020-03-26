@@ -163,6 +163,8 @@ def main():
         # (2) img_E
         # ------------------------------------
 
+        kernel_size=4
+
         sigma = 0 * img_L
 
         for i in range(kernel_size,sigma.size()[-2]-kernel_size):
