@@ -60,11 +60,14 @@ class FFDNet(nn.Module):
 
         x = self.m_down(x)
         # m = torch.ones(sigma.size()[0], sigma.size()[1], x.size()[-2], x.size()[-1]).type_as(x).mul(sigma)
-        m = sigma.repeat(1, 1, x.size()[-2], x.size()[-1])
+        if sigma.size()[2]==1:
+            m = sigma.repeat(1, 1, x.size()[-2], x.size()[-1])
+        else:
+            m = self.m_down(sigma)[:,0,:,:].unsqueeze(axis=1)
         x = torch.cat((x, m), 1)
         x = self.model(x)
         x = self.m_up(x)
-        
+
         x = x[..., :h, :w]
         return x
 
@@ -80,5 +83,3 @@ if __name__ == '__main__':
     print(x.shape)
 
     #  run models/network_ffdnet.py
-
-

@@ -107,6 +107,15 @@ class ModelPlain2(ModelBase):
     def feed_data(self, data, need_H=True):
         self.L = data['L'].to(self.device)
         self.C = data['C'].to(self.device)
+
+        self.C = 0 * self.L
+
+        kernel_size=4
+
+        for i in range(kernel_size,self.C.size()[2]-kernel_size):
+            for j in range(kernel_size,self.C.size()[3]-kernel_size):
+                self.C = self.L[:,:,i-kernel_size:i+kernel_size,j-kernel_size:j+kernel_size].mean(axis=3).mean(axis=2)
+
         if need_H:
             self.H = data['H'].to(self.device)
 
