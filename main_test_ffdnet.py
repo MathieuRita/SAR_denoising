@@ -163,6 +163,12 @@ def main():
         # (2) img_E
         # ------------------------------------
 
+        sigma = 0 * img_L
+
+        for i in range(kernel_size,sigma.size()[-2]-kernel_size):
+            for j in range(kernel_size,sigma.size()[-1]-kernel_size):
+                sigma[:,:,i,j] = img_L[:,:,i-kernel_size:i+kernel_size,j-kernel_size:j+kernel_size].mean(axis=3).mean(axis=2)
+
         img_E = model(img_L, sigma)
         img_E = util.tensor2uint(img_E)
 

@@ -75,7 +75,7 @@ class DatasetFFDNet(data.Dataset):
             # add noise
             # ---------------------------------
             noise = torch.randn(img_L.size()).mul_(noise_level).float()
-            img_L.add_(noise)
+            #img_L.add_(noise)
 
             # --------------------------------
             # Add speckle

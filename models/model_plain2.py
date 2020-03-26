@@ -112,9 +112,9 @@ class ModelPlain2(ModelBase):
 
         kernel_size=4
 
-        for i in range(kernel_size,self.C.size()[2]-kernel_size):
-            for j in range(kernel_size,self.C.size()[3]-kernel_size):
-                self.C = self.L[:,:,i-kernel_size:i+kernel_size,j-kernel_size:j+kernel_size].mean(axis=3).mean(axis=2)
+        for i in range(kernel_size,self.C.size()[-2]-kernel_size):
+            for j in range(kernel_size,self.C.size()[-1]-kernel_size):
+                self.C[:,:,i,j] = self.L[:,:,i-kernel_size:i+kernel_size,j-kernel_size:j+kernel_size].mean(axis=3).mean(axis=2)
 
         if need_H:
             self.H = data['H'].to(self.device)
