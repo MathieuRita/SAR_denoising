@@ -104,13 +104,13 @@ class DatasetFFDNet(data.Dataset):
             img_L = np.copy(img_H)
             np.random.seed(seed=0)
             #img_L += np.random.normal(0, self.sigma_test/255.0, img_L.shape)
-            
+
             # --------------------------------
             # Add speckle
             # --------------------------------
             L=1
 
-            img_size_numpy=img_L.cpu().numpy().shape
+            img_size_numpy=img_L.shape
             rows=img_size_numpy[1]
             columns=img_size_numpy[2]
             s = np.zeros((1,rows, columns))
@@ -119,8 +119,7 @@ class DatasetFFDNet(data.Dataset):
                 s = s + gamma
             s_amplitude = np.sqrt(s/L)
 
-            s_amplitude=torch.tensor(s_amplitude)
-            img_L.mul_(s_amplitude)
+            img_L*=s_amplitude
 
             noise_level = torch.FloatTensor([self.sigma_test/255.0])
 
