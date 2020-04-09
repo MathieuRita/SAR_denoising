@@ -63,9 +63,9 @@ def main():
 
 
     ###### /!/ ICI ON GERE LE NOISE LEVEL
-    noise_level_img = 15                 # noise level for noisy image
+    noise_level_img = 0                 # noise level for noisy image
     noise_level_model = noise_level_img  # noise level for model
-    model_name = 'ffdnet_gray'           # 'ffdnet_gray' | 'ffdnet_color' | 'ffdnet_color_clip' | 'ffdnet_gray_clip'
+    model_name = 'loss_L1_view_L1'           # 'ffdnet_gray' | 'ffdnet_color' | 'ffdnet_color_clip' | 'ffdnet_gray_clip'
     testset_name = 'bsd68'               # test set,  'bsd68' | 'cbsd68' | 'set12'
     need_degradation = False              # default: True
     show_img = False                     # default: False
