@@ -168,7 +168,7 @@ def main():
 
         # Estimation of the noise map
         sigma=1.1*img_E
-        sigma=(60/255)*(sigma.min()/sigma)
+        sigma=(65/255)*(sigma.min()/sigma)
 
         # Second iteration
         img_E = model(img_L, sigma)
