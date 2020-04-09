@@ -6,7 +6,7 @@ The repository is the code of a project done for the master MVA of ENS Paris-Sac
 
 ## Short description of the project
 
-In this project we perform transfer learning by using the weights proposed by FFDNet's team (gray level). We then retrain the model with SAR images contaminated with speckle noise and investigate different noise maps. All the information about our study is described in the file `work_report.pdf`
+In this project we perform transfer learning by using the weights proposed by FFDNet's team (gray level). We then retrain the model with SAR images contaminated with speckle noise and investigate different noise maps. All the information about our study is described in the file `work_report.pdf`.  The visual results that complete the report and presents the denoising performances of our implementation are available at the link: https://drive.google.com/file/d/1GiflUSyKZXIoj8S3XUUEMWDs_Z_NSpFS/view?usp=sharing.
 
 ## Experiments
 
