@@ -1,5 +1,7 @@
 # MVA_Remote
 
+![image](https://user-images.githubusercontent.com/35176066/78892619-fc397480-7a69-11ea-8af3-4836aa05880f.png)
+
 The repository is the code of a project done for the master MVA of ENS Paris-Saclay. The aim of the project is to  propose an adaptation of the network FFDNet to denoise SAR images. Therefore, the architecture and main part of the code is taken from __Zhang, Kai and Zuo, Wangmeng and Zhang, Lei FFDNet: Toward a Fast and Flexible Solution for based Image Denoising__ (https://github.com/cszn/FFDNet).
 
 ## Short description of the project
