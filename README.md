@@ -8,6 +8,10 @@ The repository is the code of a project done for the master MVA of ENS Paris-Sac
 
 In this project we perform transfer learning by using the weights proposed by FFDNet's team (gray level). We then retrain the model with SAR images contaminated with speckle noise and investigate different noise maps. All the information about our study is described in the file `work_report.pdf`.  The visual results that complete the report and presents the denoising performances of our implementation are available at the link: https://drive.google.com/file/d/1GiflUSyKZXIoj8S3XUUEMWDs_Z_NSpFS/view?usp=sharing.
 
+__Complement to the report__
+
+__One of the big problem that appears with the real images is the correlation between the pixel. Usually, training with iid speckle leads to persistent artefacts in the denoised image. Here, we observe this phenomenon when using the model without noise map with very bad result. Nevertheless, the addition of the noise map is very powerful and remove most of the indesire artefacts. The noise map behaves as a regularization term that prevent from overfitting the learnt noise.__
+
 ## Experiments
 
 All the experiments are described in the file `denoising_notebook.ipynb`. This is a step-by-step notebook that show how to use our implementation. The searching part has been done using Google Colab. We suggest to use it too.
