@@ -1,4 +1,4 @@
-# MVA_Remote
+# SAR denoising - application of FFDNet for SAR images
 
 ![image](https://user-images.githubusercontent.com/35176066/78892619-fc397480-7a69-11ea-8af3-4836aa05880f.png)
 
