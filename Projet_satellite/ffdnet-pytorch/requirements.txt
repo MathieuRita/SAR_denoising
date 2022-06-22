@@ -1,5 +1,5 @@
 opencv-python==3.4.2.17
-numpy==1.16.4
+numpy==1.22.0
 torch==1.1.0
 torchvision==0.2.1
 scikit-image==0.15.0
